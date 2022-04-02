@@ -1,0 +1,308 @@
+/* a minimalist set of CSS resets */
+
+/* default to border-box */
+html {
+  box-sizing: border-box;
+  background-color: #fffffc;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  margin: auto;
+  max-width: 960px;
+}
+
+.card3 {
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.875rem;
+  background-color: white;
+}
+
+.card2 {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.05);
+  padding: 0.875rem;
+  background-color: white;
+}
+
+.card4 {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 0px 0 rgba(0, 0, 0, 0.3);
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+  background-color: white;
+}
+
+.card5 {
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.875rem;
+  background-color: white;
+}
+
+.card6 {
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.8755rem;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#title {
+  font-size: 20px;
+  font-weight: bold;
+  height: auto;
+  padding-top:7px;
+  max-width:100%;
+}
+
+#header1 {
+  display: flex;
+    width: 100%;
+}
+
+button {
+  padding: 10px;
+  border: 2px solid #555555;
+  border-radius: 3px;
+  width: 200px;
+  height: 50%;
+  background-color: #fffffc;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: center;
+  transition-duration: 0.4s;
+}
+
+#startStopArea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+#startStopArea > button {
+  height: auto;
+  transition-duration: 0.25s;
+  background-color: white;
+  border-color: #555555;
+  color: black;
+  flex: 1;
+  flex-basis: 25%;
+  font-size: 14px;
+  letter-spacing: 0.075em;
+  font-weight: bold;
+}
+
+#startStopArea > #startBtn {
+  background-color: #4285f4;
+  border-color: #4285f4;
+  color: #fffffc;
+  min-height: 50px;
+}
+
+#startStopArea > #timerBtn {
+  max-width: 75px;
+}
+
+#startStopArea > #mistakesBtn {
+  max-width: 125px;
+}
+
+ #selectLengthBtn {
+  text-align: center;
+  vertical-align: center;
+  background-color: white;
+  border-color: white;
+  color: black;
+  height: 75px;
+
+}
+
+#selectMistakesBtn {
+  text-align: center;
+  vertical-align: center;
+  background-color: white;
+  border-color: white;
+  color: black;
+  height: 75px;
+}
+
+#clockOptionsBtn {
+  text-align: center;
+  vertical-align: center;
+  background-color: white;
+  border-color: white;
+  color: black;
+  height: 75px;
+}
+
+#startStopArea > #newPtnBtn {
+  background-color: #555555;
+  border-color: #555555;
+  color: white;
+  line-height: 15px;
+  font-weight: bold;
+  max-width: 150px;
+}
+
+#startStopArea > #stopBtn {
+  background-color: #db4437;
+  border-color: #db4437;
+  color: white;
+  min-height: 50px;
+}
+
+#startStopArea > #startBtn:active {
+  transform: scale(1.015);
+}
+
+#startStopArea > #newPtnBtn:active {
+  transform: scale(1.015);
+}
+
+#wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  height: auto;
+}
+
+#wrapper > Button {
+  flex: 1;
+  flex-basis: 33%;
+  color: rgba(0, 0, 0, 0);
+  height: 100px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#button1 {
+  border-color: #ffadad;
+  background-color: #ffadad;
+}
+
+#button1:active,
+#button1.lit {
+  background-color: #ff2828;
+  border-color: #ff5c5c;
+  transform: scale(1.03);
+  color: #ffadad;
+}
+
+#button2 {
+  border-color: #ffd6a5;
+  background-color: #ffd6a5;
+}
+
+#button2:active,
+#button2.lit {
+  background-color: #ff9a1f;
+  border-color: #ffb253;
+  transform: scale(1.03);
+  color: #ffd6a5;
+}
+
+#button3 {
+  border-color: #fdffb6;
+  background-color: #fdffb6;
+}
+
+#button3:active,
+#button3.lit {
+  background-color: #f8ff30;
+  border-color: #faff66;
+  transform: scale(1.03);
+  color: #c5cb00;
+}
+
+#button4 {
+  border-color: #caffbf;
+  background-color: #caffbf;
+}
+
+#button4:active,
+#button4.lit {
+  background-color: #53ff30;
+  border-color: #7fff66;
+  transform: scale(1.03);
+  color: #22c700;
+}
+
+#button5 {
+  border-color: #a0c4ff;
+  background-color: #a0c4ff;
+}
+
+#button5:active,
+#button5.lit {
+  background-color: #1b72ff;
+  border-color: #4e92ff;
+  transform: scale(1.03);
+  color: #a0c4ff;
+}
+
+#button6 {
+  border-color: #bdb2ff;
+  background-color: #bdb2ff;
+}
+
+#button6:active,
+#button6.lit {
+  background-color: #4c2cff;
+  border-color: #7961ff;
+  transform: scale(1.03);
+  color: #bdb2ff;
+}
+
+#heart1 {
+  transition-duration: 0.25s;
+  color: black;
+}
+
+#heart2 {
+  transition-duration: 0.25s;
+  color: black;
+}
+
+#heart3 {
+  transition-duration: 0.25s;
+  color: black;
+}
+
+#heart1L.lit {
+  transition-duration: 0.25s;
+  color: red;
+  transform: scale(1.25);
+}
+
+#heart2L.lit {
+  transition-duration: 0.25s;
+  color: red;
+  transform: scale(1.25);
+}
+
+#heart3L.lit {
+  transition-duration: 0.25s;
+  color: red;
+  transform: scale(1.25);
+}
+
+.hidden {
+  display: none;
+}
+
+/* images and videos max out at full width */
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
