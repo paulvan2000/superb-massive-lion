@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>LASMG!</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Neucha&display=swap"
+      rel="stylesheet"
+    />
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+    />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <div class="mainContainer">
+    <div class="mainWrapper">
+      <!-- this is the start of content -->
+      <div class="card6" id="header1">
+        <button
+          id="demo-menu-lower-left"
+          class="mdl-button mdl-js-button mdl-button--icon disableMe#timerBtn { max-width: 25%; }stop"
+        >
+          <i class="material-icons">more_vert</i>
+        </button>
+        <div id="title">Light and Sound Memory Game</div>
+      </div>
+      <div class="card3">
+        <text>
+          Welcome to the game! Repeat back the pattern by pressing the
+          corresponding buttons, but make sure to not forget the pattern! Press
+          start to begin.
+        </text>
+      </div>
+      <div class="card3">
+        <div id="startStopArea">
+          <button
+            id="stopBtn"
+            class="hidden & mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onclick="stopGame()"
+          >
+            STOP
+          </button>
+          <button id="timerBtn" class="hidden & card2">0:10</button>
+          <button id="mistakesBtn" class="hidden & card2">
+            <i class="material-icons" id="heart1">favorite</i>
+            <i class="material-icons hidden" id="heart1L">heart_broken</i>
+            <i class="material-icons" id="heart2">favorite</i>
+            <i class="material-icons hidden" id="heart2L">heart_broken</i>
+            <i class="material-icons" id="heart3">favorite</i>
+            <i class="material-icons hidden" id="heart3L">heart_broken</i>
+          </button>
+          <button
+            id="newPtnBtn"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onclick="generateNewPattern(true)"
+          >
+            New Pattern
+          </button>
+          <div class="mdl-tooltip" for="newPtnBtn">
+            Generate a new random color pattern for your next round, otherwise
+            the same will be used each round so that you can retry the same
+            pattern.
+          </div>
+          <button
+            id="startBtn"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onclick="startGame()"
+          >
+            <text>Start</text>
+          </button>
+          <ul
+            class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+            for="demo-menu-lower-left"
+          >
+            <li class="card5">
+              <div>
+                <div
+                  id="selectLengthBtn"
+                  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                >
+                  <select
+                    class="mdl-textfield__input"
+                    id="lengthSelect"
+                    name="Select Length"
+                  >
+                    <option class="mdl-menu__item" value="4">4</option>
+                    <option class="mdl-menu__item" value="6">6</option>
+                    <option
+                      class="mdl-menu__item"
+                      value="8"
+                      selected="selected"
+                    >
+                      8
+                    </option>
+                    <option class="mdl-menu__item" value="10">10</option>
+                    <option class="mdl-menu__item" value="15">15</option>
+                    <option class="mdl-menu__item" value="20">20</option>
+                    <option class="mdl-menu__item" value="25">25</option>
+                    <option class="mdl-menu__item" value="50">50</option>
+                  </select>
+                  <label class="mdl-textfield__label" for="lengthSelect"
+                    >Pattern Length</label
+                  >
+                </div>
+                <div class="mdl-tooltip" for="lengthSelect">
+                  Select the length of the color pattern, this contributes to a
+                  longer and more difficult round.
+                </div>
+              </div>
+            </li>
+            <li class="card5">
+              <div>
+                <div
+                  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                >
+                  <select
+                    class="mdl-textfield__input"
+                    id="mistakeSelect"
+                    name="Mistakes Allowed"
+                  >
+                    <option class="mdl-menu__item" value="0">0</option>
+                    <option class="mdl-menu__item" value="1">1</option>
+                    <option class="mdl-menu__item" value="2">2</option>
+                    <option
+                      class="mdl-menu__item"
+                      value="3"
+                      selected="selected"
+                    >
+                      3
+                    </option>
+                  </select>
+                  <label class="mdl-textfield__label" for="mistakeSelect"
+                    >Mistakes Allowed</label
+                  >
+                </div>
+              </div>
+              <div class="mdl-tooltip" for="mistakeSelect">
+                Select the amount of mistakes your next round will allow. Select
+                0 if you wish to turn off the mistakes feature.
+              </div>
+            </li>
+            <li class="card5">
+              <div id="clockOptionsBtn">
+                <div
+                  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                >
+                  <select
+                    class="mdl-textfield__input"
+                    id="clockSelect"
+                    name="Clock Options"
+                  >
+                    <option class="mdl-menu__item" value="Disabled">
+                      Disabled
+                    </option>
+                    <option class="mdl-menu__item" value="30">Slow</option>
+                    <option
+                      class="mdl-menu__item"
+                      value="15"
+                      selected="selected"
+                    >
+                      Normal
+                    </option>
+                    <option class="mdl-menu__item" value="10">Fast</option>
+                    <option class="mdl-menu__item" value="5">Fastest</option>
+                  </select>
+                  <label class="mdl-textfield__label" for="clockSelect"
+                    >Countdown Clock</label
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="mdl-tooltip" for="clockSelect">
+            The faster the countdown clock, the less time you have. The timer
+            resets after each guess; you can also choose to disable the feature
+            entirely.
+          </div>
+        </div>
+      </div>
+      <div id="wrapper" class="card3">
+        <button
+          id="button1"
+          onmousedown="startTone(1)"
+          onmouseup="stopTone()"
+          onclick="guess(1)"
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        >
+          red
+        </button>
+        <button
+          id="button2"
+          onmousedown="startTone(2)"
+          onmouseup="stopTone()"
+          onclick="guess(2)"
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        >
+          orange
+        </button>
+        <button
+          id="button3"
+          onmousedown="startTone(3)"
+          onmouseup="stopTone()"
+          onclick="guess(3)"
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        >
+          yellow
+        </button>
+        <button
+          id="button4"
+          onmousedown="startTone(4)"
+          onmouseup="stopTone()"
+          onclick="guess(4)"
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        >
+          green
+        </button>
+        <button
+          id="button5"
+          onmousedown="startTone(5)"
+          onmouseup="stopTone()"
+          onclick="guess(5)"
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        >
+          blue
+        </button>
+        <button
+          id="button6"
+          onmousedown="startTone(6)"
+          onmouseup="stopTone()"
+          onclick="guess(6)"
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        >
+          purple
+        </button>
+      </div>
+    </div>
+  </div>
+</html>
